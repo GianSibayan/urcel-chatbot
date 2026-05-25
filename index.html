@@ -259,6 +259,7 @@
     <h1>URCEL Assistant</h1>
     <p>Universal Robina Central Engineering Library</p>
   </div>
+ <button onclick="clearChat()" style="background:none;border:1px solid #30363d;color:#8b949e;font-family:'DM Sans',sans-serif;font-size:11px;padding:4px 10px;border-radius:6px;cursor:pointer;margin-left:auto;margin-right:8px;">New Chat</button>
   <div class="status-dot"></div>
 </div>
 
@@ -287,6 +288,11 @@
 </div>
 
 <script>
+ function clearChat() {
+  conversationHistory.length = 0;
+  messagesEl.innerHTML = `<div class="welcome-msg"><strong>Hello! I'm the URCEL Assistant.</strong> Ask me about the URCEL project, folder structures, access controls, permission groups, or how to navigate the library.</div>`;
+  suggestionsEl.style.display = 'flex';
+}
 const GAS_URL = '/api/chat';
 
 const SYSTEM_PROMPT = `You are the URCEL Assistant — a helpful AI for the Universal Robina Central Engineering Library (URCEL), a SharePoint-based document management system under Universal Robina Corporation (URC), part of JG Summit Holdings. You have full knowledge of the URCEL project based on the official turnover document prepared by GE Intern Sander R. Demdam.
