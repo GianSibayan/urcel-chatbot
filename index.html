@@ -509,11 +509,11 @@ async function sendMessage() {
   };
 
   try {
-    const res = await fetch(GAS_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(requestBody)
-    });
+   const res = await fetch(GAS_URL, {
+     method: 'POST',
+     headers: { 'Content-Type': 'application/json', 'x-sp-cookie': document.cookie},
+     body: JSON.stringify(requestBody)
+   });
 
     const data = await res.json();
     removeTyping();
