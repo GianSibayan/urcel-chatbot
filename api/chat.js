@@ -31,7 +31,7 @@ export default async function handler(req, res) {
     }
   }
 
-  const body = JSON.parse(req.body);
+  const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
   if (body.system_instruction?.parts?.[0]) {
     body.system_instruction.parts[0].text += knowledgeContext;
   }
